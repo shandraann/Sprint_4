@@ -15,7 +15,6 @@ public class QuestionListObject {
     private WebDriver driver;
 
     public QuestionListObject(WebDriver driver) {
-
         this.driver = driver;
     }
 

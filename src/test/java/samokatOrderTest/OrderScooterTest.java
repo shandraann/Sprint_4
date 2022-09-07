@@ -33,7 +33,7 @@ public class OrderScooterTest {
     private final String stationName = "Черкизовская";
     private final String phone = "89995437755";
     private final String date = "07.10.2022";
-  
+
 
 
     @Test
@@ -73,7 +73,6 @@ public class OrderScooterTest {
         secondOrderList.chooseGreyScooter();
         secondOrderList.finishOrder();
         Boolean actual = driver.findElement(By.xpath(".//div[text()='Хотите оформить заказ?']")).isDisplayed();
-        ;
         Assert.assertEquals(true, actual);
     }
 

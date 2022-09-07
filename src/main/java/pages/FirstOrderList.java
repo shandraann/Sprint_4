@@ -30,6 +30,7 @@ public class FirstOrderList {
     public void acceptCookie() {
         driver.findElement(cookieButton).click();
     }
+
     // Нажать кнопку Заказать
     public void clickOrderButton() {
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);

@@ -26,8 +26,6 @@ public class SecondOrderList {
     protected By orderConfirmButton = By.xpath(".//button[text()='Да']");
 
 
-
-
     //Когда привезти самокат
     public void chooseDate(String date) {
         driver.findElement(datePlace).click();
@@ -46,6 +44,7 @@ public class SecondOrderList {
     }
     // Выбрать серый самокат
     public void chooseGreyScooter(){
+
         driver.findElement(greyScooter).click();
     }
     //Нажать Заказать
