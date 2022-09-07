@@ -1,4 +1,4 @@
-package samokatOrderTest;
+package pages;
 
 
 
@@ -27,6 +27,7 @@ public class SecondOrderList {
 
 
 
+
     //Когда привезти самокат
     public void chooseDate(String date) {
         driver.findElement(datePlace).click();
@@ -51,7 +52,7 @@ public class SecondOrderList {
     public void finishOrder(){
         driver.findElement(orderFinishButton).click();
        new WebDriverWait(driver, 3)
-               .until(ExpectedConditions.elementToBeClickable(By.tagName("orderConfirmButton")));
+               .until(ExpectedConditions.elementToBeClickable(orderConfirmButton));
        driver.findElement(orderConfirmButton).click();
     }
 

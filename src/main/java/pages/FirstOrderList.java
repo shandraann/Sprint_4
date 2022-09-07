@@ -1,4 +1,4 @@
-package samokatOrderTest;
+package pages;
 
 
 
@@ -22,15 +22,17 @@ public class FirstOrderList {
     protected By surnamePlace = By.xpath(".//input[@placeholder='* Фамилия']");
     protected By adressPlace = By.xpath(".//input[@placeholder='* Адрес: куда привезти заказ']");
     protected By metroPlace = By.xpath(".//input[@placeholder='* Станция метро']");
-    // protected By metroStation = By.xpath(".//div[text()='Бульвар Рокоссовского']");
-    private String stationItem = ".//div[text()='%s']/..";
-
+    protected String stationItem = ".//div[text()='%s']/..";
     protected By phonePlace = By.xpath(".//input[@placeholder='* Телефон: на него позвонит курьер']");
     protected By further = By.xpath("//button[text()='Далее']");
 
 
+    public void acceptCookie() {
+        driver.findElement(cookieButton).click();
+    }
     // Нажать кнопку Заказать
     public void clickOrderButton() {
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         driver.findElement(orderButton).click();
     }
 
