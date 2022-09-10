@@ -1,6 +1,7 @@
 package samokatOrderTest;
 
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -14,23 +15,18 @@ import java.util.concurrent.TimeUnit;
 public class MenuTest {
     private static WebDriver driver;
 
-   //К сожалению, применениие   @BeforeClass и   @AfterClass нам показывали только на вебинаре)Но я попыталась
    @BeforeClass
     public static void setUp() {
-       System.setProperty("webdriver.chrome.driver", "/Users/shandraan/Downloads/WebDriver/chromedriver 2");
-       driver = new ChromeDriver();
+       // WebDriverManager.chromedriver().setup();
+       //    driver = new ChromeDriver(); - для запустка теста в Chrome
+       WebDriverManager.firefoxdriver().setup(); //поправила
+       driver = new FirefoxDriver();
        QuestionListObject questionListObject = new QuestionListObject(driver);
        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
        driver.manage().window().maximize();
        driver.get("https://qa-scooter.praktikum-services.ru/");
        questionListObject.clickCookie();
      }
-
-//для браузера Firefox
- //   public void setUpFF() {
-   //     System.setProperty("webdriver.gecko.driver","/Users/shandraan/Downloads/WebDriverFF/geckodriver");
-  //      driver = new FirefoxDriver();}
-
 
     @Test
     public void checkFirstText(){

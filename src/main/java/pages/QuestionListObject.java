@@ -156,6 +156,7 @@ public class QuestionListObject {
     }
 
     public void clickCookie() {
+        driver.findElement(cookieButton).isDisplayed(); //проверка, что куки отображаются
         driver.findElement(cookieButton).click();
     }
 
@@ -165,11 +166,3 @@ public class QuestionListObject {
 
 
 
-
-
-
-
-//     клик по элементу
-//  public void clickToElement(By by) {
-//  scrollToElement(by);
-//  driver.findElement(by).click();}

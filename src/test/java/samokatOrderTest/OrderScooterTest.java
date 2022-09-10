@@ -1,6 +1,7 @@
 package samokatOrderTest;
 
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -8,6 +9,7 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import pages.FirstOrderList;
 import pages.SecondOrderList;
 
@@ -15,9 +17,10 @@ public class OrderScooterTest {
     private WebDriver driver;
 
     public OrderScooterTest() {
-
-        System.setProperty("webdriver.chrome.driver", "/Users/shandraan/Downloads/WebDriver/chromedriver 2");
-        driver = new ChromeDriver();
+       // WebDriverManager.chromedriver().setup(); - для запустка теста в Chrome
+    //    driver = new ChromeDriver();
+        WebDriverManager.firefoxdriver().setup();// запуск теста в браузере Firefox, чтобы тест прошел
+        driver = new FirefoxDriver();
         driver.manage().window().maximize();
     }
 
@@ -39,7 +42,7 @@ public class OrderScooterTest {
     @Test
     public void orderBlackSamokatTest() {
         FirstOrderList firstOrderList = new FirstOrderList(driver);
-        firstOrderList.acceptCookie();
+        firstOrderList.acceptCookie(); // закрытие куки
         firstOrderList.clickOrderButton();
         firstOrderList.fillName(name);
         firstOrderList.fillSurname(surname);
@@ -52,14 +55,14 @@ public class OrderScooterTest {
         secondOrderList.chooseDuration();
         secondOrderList.chooseBlackScooter();
         secondOrderList.finishOrder();
-        Boolean actual = driver.findElement(By.xpath(".//div[text()='Хотите оформить заказ?']")).isDisplayed();
+        Boolean actual = driver.findElement(By.xpath(".//div[text()='Заказ оформлен']")).isDisplayed(); // добавила проверку для последнего шага в тесте
         Assert.assertEquals(true, actual);
     }
 
     @Test
     public void orderGreySamokatTest() {
         FirstOrderList firstOrderList = new FirstOrderList(driver);
-        firstOrderList.acceptCookie();
+        firstOrderList.acceptCookie(); // закрытие куки
         firstOrderList.clickOrderButton();
         firstOrderList.fillName(name);
         firstOrderList.fillSurname(surname);
@@ -72,7 +75,7 @@ public class OrderScooterTest {
         secondOrderList.chooseDuration();
         secondOrderList.chooseGreyScooter();
         secondOrderList.finishOrder();
-        Boolean actual = driver.findElement(By.xpath(".//div[text()='Хотите оформить заказ?']")).isDisplayed();
+        Boolean actual = driver.findElement(By.xpath(".//div[text()='Заказ оформлен']")).isDisplayed();
         Assert.assertEquals(true, actual);
     }
 
