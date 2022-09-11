@@ -55,7 +55,7 @@ public class OrderScooterTest {
         secondOrderList.chooseDuration();
         secondOrderList.chooseBlackScooter();
         secondOrderList.finishOrder();
-        Boolean actual = driver.findElement(By.xpath(".//div[text()='Заказ оформлен']")).isDisplayed(); // добавила проверку для последнего шага в тесте
+        Boolean actual = secondOrderList.checkOrderSucces(); // добавила проверку для последнего шага в тесте
         Assert.assertEquals(true, actual);
     }
 
@@ -75,7 +75,7 @@ public class OrderScooterTest {
         secondOrderList.chooseDuration();
         secondOrderList.chooseGreyScooter();
         secondOrderList.finishOrder();
-        Boolean actual = driver.findElement(By.xpath(".//div[text()='Заказ оформлен']")).isDisplayed();
+        Boolean actual = secondOrderList.checkOrderSucces();
         Assert.assertEquals(true, actual);
     }
 

@@ -24,6 +24,7 @@ public class SecondOrderList {
     protected By greyScooter = By.id("grey");
     protected By orderFinishButton = By.xpath(".//div[@class='Order_Buttons__1xGrp']/button[text()='Заказать']");
     protected By orderConfirmButton = By.xpath(".//button[text()='Да']");
+    protected By orderSuccesButton = By.xpath(".//div[text()='Заказ оформлен']");
 
 
     //Когда привезти самокат
@@ -55,6 +56,10 @@ public class SecondOrderList {
        driver.findElement(orderConfirmButton).click();
     }
 
+    public boolean checkOrderSucces () {
+        driver.findElement(orderSuccesButton).isDisplayed();
+        return true;
+    }
 
 }
 
